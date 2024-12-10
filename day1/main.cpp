@@ -12,7 +12,8 @@ int main() {
     vector<int> leftList;
     vector<int> rightList;
     int totalDistance = 0;
-    
+    int similarityScore = 0;
+
     // Read input file and store the location id lists
     ifstream input("input.in");
     string line;
@@ -43,13 +44,27 @@ int main() {
         }
     }
 
-    // Get the distance between each location and add them
+    // Solution for the first half. Get the distance between each location and add them
 
     for (int i = 0; i < length; i ++) {
         totalDistance += abs(rightList[i] - leftList[i]);
     }
     
-    cout << totalDistance << endl;
+    cout << "The total distance between the lists is: " << totalDistance << endl;
+    
+    // Solution for the second half. Get the score of each location and add them
+
+    for (int i = 0; i < length; i ++) {
+        int individualScore = 0;
+        for (int j = 0; j < length; j ++) {
+            if (leftList[i] == rightList[j]) {
+                individualScore++;
+            }
+        }
+        similarityScore += leftList[i] * individualScore;
+    }
+
+    cout << "The total similarity score is: " << similarityScore << endl;
 }
 
 vector<string> split(string input) {
