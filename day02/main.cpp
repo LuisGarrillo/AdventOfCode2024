@@ -58,19 +58,16 @@ int main() {
                 if (increasing) {
                     if (iterationSample[j] > iterationSample[j+1]) {
                         unsafe = true;
-                        cout << "should increase" << endl;
                     }
                 }
                 else {
                     if (iterationSample[j] < iterationSample[j+1]) {
                         unsafe = true;
-                        cout << "should decrease" << endl;
                     }
                 }
                 int difference = abs(iterationSample[j] - iterationSample[j + 1]);
                 if (difference < 1 || difference > 3) {
                     unsafe = true;
-                    cout << "bad range " << difference << " between " << iterationSample[j] << " " << iterationSample[j + 1] << endl;
                 }
 
                 if (unsafe) {
@@ -94,11 +91,9 @@ int main() {
         }
         
         if (valid) {
-            cout << "index " << i << " is valid" << endl;
             safeReports++;
         } 
         else {
-            cout << "index " << i << " is invalid" << endl;
         }
     }
 
